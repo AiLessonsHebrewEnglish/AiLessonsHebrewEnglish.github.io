@@ -1,0 +1,1017 @@
+==================== ./index.html ====================
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>AI Lessons - Learn Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+==================== ./package-lock.json ====================
+{
+  "name": "ai-lessons",
+  "version": "0.0.1",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "ai-lessons",
+      "version": "0.0.1",
+      "dependencies": {
+        "@supabase/supabase-js": "^2.45.0",
+        "@trpc/client": "^11.0.0",
+        "@trpc/react-query": "^11.0.0",
+        "@trpc/server": "^11.0.0"
+      },
+      "devDependencies": {
+        "@types/react": "^18.3.31",
+        "@types/react-dom": "^18.3.7",
+        "@vitejs/plugin-react": "^4.3.1",
+        "autoprefixer": "^10.5.2",
+        "lucide-react": "^1.23.0",
+        "postcss": "^8.5.16",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "tailwindcss": "^3.4.19",
+        "tw-animate-css": "^1.4.0",
+        "typescript": "^5.9.3",
+        "vite": "^5.4.21",
+        "wouter": "^3.10.0"
+      }
+    },
+    "node_modules/@alloc/quick-lru": {
+      "version": "5.2.0",
+      "resolved": "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz",
+      "integrity": "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/@babel/code-frame": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.29.7.tgz",
+      "integrity": "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.29.7",
+        "js-tokens": "^4.0.0",
+        "picocolors": "^1.1.1"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/compat-data": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.29.7.tgz",
+      "integrity": "sha512-locTkQyKvwIEgBzVrn8693ebc97F2U8ZHjbXwDXJ5Fn2TCpNwTlKcaKLkdHop5c/icOFE7qt7Q9JC5hnKNa6Gg==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/core": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/core/-/core-7.29.7.tgz",
+      "integrity": "sha512-RgHBCvtjbOK2gXSNBNIkNoEc9qoVEtau3hj8gEqKQuL3HZAibKarWFEI3Lfm6EYKkLalOh8eSrj9b+ch9H/VBA==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/code-frame": "^7.29.7",
+        "@babel/generator": "^7.29.7",
+        "@babel/helper-compilation-targets": "^7.29.7",
+        "@babel/helper-module-transforms": "^7.29.7",
+        "@babel/helpers": "^7.29.7",
+        "@babel/parser": "^7.29.7",
+        "@babel/template": "^7.29.7",
+        "@babel/traverse": "^7.29.7",
+        "@babel/types": "^7.29.7",
+        "@jridgewell/remapping": "^2.3.5",
+        "convert-source-map": "^2.0.0",
+        "debug": "^4.1.0",
+        "gensync": "^1.0.0-beta.2",
+        "json5": "^2.2.3",
+        "semver": "^6.3.1"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/babel"
+      }
+    },
+    "node_modules/@babel/generator": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/generator/-/generator-7.29.7.tgz",
+      "integrity": "sha512-DkXD5OJQaAQIdZ1bt3UZdEnHAn9Imd3IVBdX03UFe+ony9Ojw5pzr9YVKGDY1jt+Gcn/FnGkNf8r+Vj5NOJWtQ==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/parser": "^7.29.7",
+        "@babel/types": "^7.29.7",
+        "@jridgewell/gen-mapping": "^0.3.12",
+        "@jridgewell/trace-mapping": "^0.3.28",
+        "jsesc": "^3.0.2"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-compilation-targets": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-compilation-targets/-/helper-compilation-targets-7.29.7.tgz",
+      "integrity": "sha512-wem6WaBj4NaVYVdNhLPPVacES6ZJ+KBBfSkTMD3YZxbP3rm3Di85tJU5ljaUNhaOynt+Aj0xruhYuzQBt8n71g==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/compat-data": "^7.29.7",
+        "@babel/helper-validator-option": "^7.29.7",
+        "browserslist": "^4.24.0",
+        "lru-cache": "^5.1.1",
+        "semver": "^6.3.1"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-globals": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-globals/-/helper-globals-7.29.7.tgz",
+      "integrity": "sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-module-imports": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-module-imports/-/helper-module-imports-7.29.7.tgz",
+      "integrity": "sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/traverse": "^7.29.7",
+        "@babel/types": "^7.29.7"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-module-transforms": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.29.7.tgz",
+      "integrity": "sha512-UPUVSyXbOh627KiCIGQSgwWzGeBKLkaJ9PJEdrngIwMSzxLR4jS4+f1f1jb7VzBbg8nFLaYotvVPFCTqdrmTAg==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/helper-module-imports": "^7.29.7",
+        "@babel/helper-validator-identifier": "^7.29.7",
+        "@babel/traverse": "^7.29.7"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0"
+      }
+    },
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-plugin-utils/-/helper-plugin-utils-7.29.7.tgz",
+      "integrity": "sha512-G7sHYigPY17oO5SYWnfD/0MTBwVR781S/JI643e/JhUYgVgWE/61SoW3NH9KWUKyKq5LVh3npif99Wkt6j86Jw==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-string-parser": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz",
+      "integrity": "sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-validator-identifier": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz",
+      "integrity": "sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-validator-option": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helper-validator-option/-/helper-validator-option-7.29.7.tgz",
+      "integrity": "sha512-N9ZErrD+yW5geCDtBqnOoxmR8+tNKiGuxKlDpuJxfsqpa2dFcexaziGAE/qoHLiDDreVNMupxGmSoNlyvsA3gw==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helpers": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/helpers/-/helpers-7.29.7.tgz",
+      "integrity": "sha512-1k2lAGRMfHTcwuNYcCNUmaUffmQv8KWMfh2iJUUeRlwlwH4FdNG7mfPI10NPfLHJFThE4Tyr4mv7kTNZOiPuBg==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/template": "^7.29.7",
+        "@babel/types": "^7.29.7"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/parser": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.7.tgz",
+      "integrity": "sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "@babel/types": "^7.29.7"
+      },
+      "bin": {
+        "parser": "bin/babel-parser.js"
+      },
+      "engines": {
+        "node": ">=6.0.0"
+      }
+    },
+    "node_modules/@babel/plugin-transform-react-jsx-self": {
+      "version": "7.29.7",
+      "resolved": "https://registry.npmjs.org/@babel/plugin-transform-react-jsx-self/-/plugin-transform-react-jsx-self-7.29.7.tgz",
+      "integrity": "sha512-TL0hMc9xzy86VD31nUiwzd5otRAcyEPcsegCxolO0PvcXuH1v0kECe/UIznYFihpkvU5wg/jk4v0TTEFfm53fw==",
+
+==================== ./package.json ====================
+{
+  "name": "ai-lessons",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "@trpc/client": "^11.0.0",
+    "@trpc/react-query": "^11.0.0",
+    "@trpc/server": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.5.2",
+    "lucide-react": "^1.23.0",
+    "postcss": "^8.5.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.19",
+    "tw-animate-css": "^1.4.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "wouter": "^3.10.0"
+  }
+}
+
+==================== ./postcss.config.js ====================
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+==================== ./src/App.jsx ====================
+import { Route, Switch } from "wouter";
+
+import Home from "./pages/Home.jsx";
+import MemberSignup from "./pages/MemberSignup.jsx";
+import MemberLogin from "./pages/MemberLogin.jsx";
+import MemberDashboard from "./pages/MemberDashboard.jsx";
+import AdminLogin from "./pages/AdminLogin.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
+
+export default function App() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/member-signup" component={MemberSignup} />
+      <Route path="/member-login" component={MemberLogin} />
+      <Route path="/member-dashboard" component={MemberDashboard} />
+      <Route path="/admin" component={AdminLogin} />
+      <Route path="/admin-dashboard" component={AdminDashboard} />
+    </Switch>
+  );
+}
+
+==================== ./src/Languages.jsx ====================
+import { createContext, useContext, useState } from "react";
+
+const LanguageContext = createContext();
+
+const translations = {
+  en: {
+    home: "Home",
+    login: "Login",
+    signup: "Sign Up",
+    dashboard: "Dashboard",
+    logout: "Logout",
+  },
+  he: {
+    home: "בית",
+    login: "התחברות",
+    signup: "הרשמה",
+    dashboard: "לוח בקרה",
+    logout: "התנתקות",
+  },
+};
+
+export function LanguageProvider({ children }) {
+  const [lang, setLang] = useState("en");
+
+  const toggleLanguage = () => {
+    setLang(prev => (prev === "en" ? "he" : "en"));
+  };
+
+  const t = (key) => translations[lang][key] || key;
+
+  return (
+    <LanguageContext.Provider value={{ lang, toggleLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export const useLanguage = () => useContext(LanguageContext);
+
+==================== ./src/db.js ====================
+import { eq } from "drizzle-orm";
+import { drizzle } from "drizzle-orm/mysql2";
+import { InsertUser, users, memberUsers, bookings, InsertMemberUser, InsertBooking } from "../drizzle/schema";
+import { ENV } from './_core/env';
+import * as bcrypt from 'bcryptjs';
+
+let _db: ReturnType<typeof drizzle> | null = null;
+
+// Lazily create the drizzle instance so local tooling can run without a DB.
+export async function getDb() {
+  if (!_db && process.env.DATABASE_URL) {
+    try {
+      _db = drizzle(process.env.DATABASE_URL);
+    } catch (error) {
+      console.warn("[Database] Failed to connect:", error);
+      _db = null;
+    }
+  }
+  return _db;
+}
+
+export async function upsertUser(user: InsertUser): Promise<void> {
+  if (!user.openId) {
+    throw new Error("User openId is required for upsert");
+  }
+
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot upsert user: database not available");
+    return;
+  }
+
+  try {
+    const values: InsertUser = {
+      openId: user.openId,
+    };
+    const updateSet: Record<string, unknown> = {};
+
+    const textFields = ["name", "email", "loginMethod"] as const;
+    type TextField = (typeof textFields)[number];
+
+    const assignNullable = (field: TextField) => {
+      const value = user[field];
+      if (value === undefined) return;
+      const normalized = value ?? null;
+      values[field] = normalized;
+      updateSet[field] = normalized;
+    };
+
+    textFields.forEach(assignNullable);
+
+    if (user.lastSignedIn !== undefined) {
+      values.lastSignedIn = user.lastSignedIn;
+      updateSet.lastSignedIn = user.lastSignedIn;
+    }
+    if (user.role !== undefined) {
+      values.role = user.role;
+      updateSet.role = user.role;
+    } else if (user.openId === ENV.ownerOpenId) {
+      values.role = 'admin';
+      updateSet.role = 'admin';
+    }
+
+    if (!values.lastSignedIn) {
+      values.lastSignedIn = new Date();
+    }
+
+    if (Object.keys(updateSet).length === 0) {
+      updateSet.lastSignedIn = new Date();
+    }
+
+    await db.insert(users).values(values).onDuplicateKeyUpdate({
+      set: updateSet,
+    });
+  } catch (error) {
+    console.error("[Database] Failed to upsert user:", error);
+    throw error;
+  }
+}
+
+export async function getUserByOpenId(openId: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get user: database not available");
+    return undefined;
+  }
+
+  const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function createMemberUser(username: string, password: string, email?: string, fullName?: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const passwordHash = await bcrypt.hash(password, 10);
+  
+  const result = await db.insert(memberUsers).values({
+    username,
+    passwordHash,
+    email,
+    fullName,
+  });
+
+  return result;
+}
+
+export async function getMemberUserByUsername(username: string) {
+  const db = await getDb();
+  if (!db) {
+    return undefined;
+  }
+
+  const result = await db.select().from(memberUsers).where(eq(memberUsers.username, username)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function verifyMemberPassword(username: string, password: string) {
+  const user = await getMemberUserByUsername(username);
+  if (!user) return null;
+
+  const isValid = await bcrypt.compare(password, user.passwordHash);
+  return isValid ? user : null;
+}
+
+export async function createBooking(memberId: number, lessonDate: Date, platform: string, notes?: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const result = await db.insert(bookings).values({
+    memberId,
+    lessonDate,
+    platform,
+    notes,
+  });
+
+  return result;
+}
+
+export async function getMemberBookings(memberId: number) {
+  const db = await getDb();
+  if (!db) {
+    return [];
+  }
+
+  return await db.select().from(bookings).where(eq(bookings.memberId, memberId));
+}
+
+export async function getAllBookings() {
+  const db = await getDb();
+  if (!db) {
+    return [];
+  }
+
+  return await db.select().from(bookings);
+}
+
+export async function getAllMemberUsers() {
+  const db = await getDb();
+  if (!db) {
+    return [];
+  }
+
+  return await db.select().from(memberUsers);
+}
+
+==================== ./src/index.css ====================
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+==================== ./src/lib/Languages.js ====================
+export const translations = {
+  en: {
+    home: "Home",
+    login: "Login",
+    signup: "Sign Up",
+    logout: "Logout",
+    memberDashboard: "Member Dashboard",
+    adminDashboard: "Admin Dashboard",
+    welcome: "Welcome",
+    createAccount: "Create Account",
+    password: "Password",
+    username: "Username",
+    email: "Email (Optional)",
+    fullName: "Full Name (Optional)",
+    changeLanguage: "עברית",
+  },
+
+  he: {
+    home: "בית",
+    login: "התחברות",
+    signup: "הרשמה",
+    logout: "התנתקות",
+    memberDashboard: "לוח תלמיד",
+    adminDashboard: "לוח ניהול",
+    welcome: "ברוך הבא",
+    createAccount: "צור חשבון",
+    password: "סיסמה",
+    username: "שם משתמש",
+    email: "אימייל (אופציונלי)",
+    fullName: "שם מלא (אופציונלי)",
+    changeLanguage: "English",
+  },
+};
+
+export function getLang() {
+  return localStorage.getItem("lang") || "en";
+}
+
+export function setLang(lang) {
+  localStorage.setItem("lang", lang);
+  window.dispatchEvent(new Event("langchange"));
+}
+
+==================== ./src/lib/supabase.js ====================
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+==================== ./src/main.jsx ====================
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./pages/App.jsx";
+import { LanguageProvider } from "./Languages.jsx";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <LanguageProvider>
+    <App />
+  </LanguageProvider>
+);
+
+==================== ./src/pages/AdminDashboard.jsx ====================
+export default function AdminDashboard() {
+  return (
+    <div className="p-6">
+      <h1>Admin Dashboard</h1>
+    </div>
+  );
+}
+
+==================== ./src/pages/AdminLogin.jsx ====================
+export default function AdminLogin() {
+  return (
+    <div className="p-6">
+      <h1>Admin Login</h1>
+    </div>
+  );
+}
+
+==================== ./src/pages/App.jsx ====================
+import { Route, Switch } from "wouter";
+
+import Home from "./Home.jsx";
+import MemberSignup from "./MemberSignup.jsx";
+import MemberLogin from "./MemberLogin.jsx";
+import MemberDashboard from "./MemberDashboard.jsx";
+import AdminLogin from "./AdminLogin.jsx";
+import AdminDashboard from "./AdminDashboard.jsx";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/member-signup" component={MemberSignup} />
+      <Route path="/member-login" component={MemberLogin} />
+      <Route path="/member-dashboard" component={MemberDashboard} />
+      <Route path="/admin" component={AdminLogin} />
+      <Route path="/admin-dashboard" component={AdminDashboard} />
+    </Switch>
+  );
+}
+
+export default function App() {
+  return <Router />;
+}
+
+==================== ./src/pages/Home.jsx ====================
+import { useLanguage } from "../Languages.jsx";
+
+export default function Home() {
+  const { t, toggleLanguage, lang } = useLanguage();
+
+  return (
+    <div className="p-6">
+      <button onClick={toggleLanguage}>
+        🌐 {lang === "en" ? "עברית" : "English"}
+      </button>
+
+      <h1 className="text-2xl font-bold mt-4">
+        {t("home")}
+      </h1>
+    </div>
+  );
+}
+
+==================== ./src/pages/MemberDashboard.jsx ====================
+import { useLanguage } from "../Languages.jsx";
+
+export default function MemberDashboard() {
+  const { t } = useLanguage();
+
+  return (
+    <div className="p-6">
+      <h1>{t("dashboard")}</h1>
+    </div>
+  );
+}
+
+==================== ./src/pages/MemberLogin.jsx ====================
+import { useLanguage } from "../Languages.jsx";
+
+export default function MemberLogin() {
+  const { t } = useLanguage();
+
+  return (
+    <div className="p-6">
+      <h1>{t("login")}</h1>
+    </div>
+  );
+}
+
+==================== ./src/pages/MemberSignup.jsx ====================
+import { useLanguage } from "../Languages.jsx";
+
+export default function MemberSignup() {
+  const { t } = useLanguage();
+
+  return (
+    <div className="p-6">
+      <h1>{t("signup")}</h1>
+    </div>
+  );
+}
+
+==================== ./src/routers.js ====================
+import { COOKIE_NAME } from "@shared/const";
+import { getSessionCookieOptions } from "./_core/cookies";
+import { systemRouter } from "./_core/systemRouter";
+import { z } from "zod";
+import { createMemberUser, getMemberUserByUsername, verifyMemberPassword, createBooking, getMemberBookings, getAllBookings, getAllMemberUsers } from "./db";
+
+// Admin-only procedure
+const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
+  if (ctx.user?.role !== "admin") {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Admin access required" });
+  }
+  return next({ ctx });
+});
+
+export const appRouter = router({
+  system: systemRouter,
+  
+  auth: router({
+    me: publicProcedure.query(opts => opts.ctx.user),
+    logout: publicProcedure.mutation(({ ctx }) => {
+      const cookieOptions = getSessionCookieOptions(ctx.req);
+      ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
+      return {
+        success: true,
+      } as const;
+    }),
+  }),
+
+  // Member authentication and management
+  member: router({
+    register: publicProcedure
+      .input(z.object({
+        username: z.string().min(3).max(255),
+        password: z.string().min(6),
+        email: z.string().email().optional(),
+        fullName: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          // Check if username already exists
+          const existing = await getMemberUserByUsername(input.username);
+          if (existing) {
+            throw new TRPCError({
+              code: "CONFLICT",
+              message: "Username already taken",
+            });
+          }
+
+          await createMemberUser(
+            input.username,
+            input.password,
+            input.email,
+            input.fullName
+          );
+
+          return { success: true, message: "Account created successfully" };
+        } catch (error) {
+          if (error instanceof TRPCError) throw error;
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to create account",
+          });
+        }
+      }),
+
+    login: publicProcedure
+      .input(z.object({
+        username: z.string(),
+        password: z.string(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          const user = await verifyMemberPassword(input.username, input.password);
+          if (!user) {
+            throw new TRPCError({
+              code: "UNAUTHORIZED",
+              message: "Invalid username or password",
+            });
+          }
+
+          return {
+            success: true,
+            user: {
+              id: user.id,
+              username: user.username,
+              email: user.email,
+              fullName: user.fullName,
+            },
+          };
+        } catch (error) {
+          if (error instanceof TRPCError) throw error;
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Login failed",
+          });
+        }
+      }),
+  }),
+
+  // Booking management
+  booking: router({
+    create: publicProcedure
+      .input(z.object({
+        memberId: z.number(),
+        lessonDate: z.date(),
+        platform: z.enum(["zoom", "whatsapp", "telegram", "signal"]),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          await createBooking(
+            input.memberId,
+            input.lessonDate,
+            input.platform,
+            input.notes
+          );
+
+          return { success: true, message: "Booking created successfully" };
+        } catch (error) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to create booking",
+          });
+        }
+      }),
+
+    getMemberBookings: publicProcedure
+      .input(z.object({ memberId: z.number() }))
+      .query(async ({ input }) => {
+        try {
+          return await getMemberBookings(input.memberId);
+        } catch (error) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to fetch bookings",
+          });
+        }
+      }),
+  }),
+
+  // Admin management
+  admin: router({
+    getAllMembers: adminProcedure.query(async () => {
+      try {
+        return await getAllMemberUsers();
+      } catch (error) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to fetch members",
+        });
+      }
+    }),
+
+    getAllBookings: adminProcedure.query(async () => {
+      try {
+        return await getAllBookings();
+      } catch (error) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to fetch bookings",
+        });
+      }
+    }),
+
+    createMember: adminProcedure
+      .input(z.object({
+        username: z.string().min(3).max(255),
+        password: z.string().min(6),
+        email: z.string().email().optional(),
+        fullName: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        try {
+          // Check if username already exists
+          const existing = await getMemberUserByUsername(input.username);
+          if (existing) {
+            throw new TRPCError({
+              code: "CONFLICT",
+              message: "Username already taken",
+            });
+          }
+
+          await createMemberUser(
+            input.username,
+            input.password,
+            input.email,
+            input.fullName
+          );
+
+          return { success: true, message: "Member created successfully" };
+        } catch (error) {
+          if (error instanceof TRPCError) throw error;
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to create member",
+          });
+        }
+      }),
+  }),
+});
+
+export type AppRouter = typeof appRouter;
+
+==================== ./src/schema.js ====================
+import { int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+
+/**
+ * Core user table backing auth flow.
+ * Extend this file with additional tables as your product grows.
+ * Columns use camelCase to match both database fields and generated types.
+ */
+export const users = mysqlTable("users", {
+  /**
+   * Surrogate primary key. Auto-incremented numeric value managed by the database.
+   * Use this for relations between tables.
+   */
+  id: int("id").autoincrement().primaryKey(),
+  /** Manus OAuth identifier (openId) returned from the OAuth callback. Unique per user. */
+  openId: varchar("openId", { length: 64 }).notNull().unique(),
+  name: text("name"),
+  email: varchar("email", { length: 320 }),
+  loginMethod: varchar("loginMethod", { length: 64 }),
+  role: mysqlEnum("role", ["user", "admin"]).default("user").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  lastSignedIn: timestamp("lastSignedIn").defaultNow().notNull(),
+});
+
+export type User = typeof users.$inferSelect;
+export type InsertUser = typeof users.$inferInsert;
+
+/**
+ * Member users table for storing member account credentials
+ * Members can book lessons and access the member area
+ */
+export const memberUsers = mysqlTable("memberUsers", {
+  id: int("id").autoincrement().primaryKey(),
+  username: varchar("username", { length: 255 }).notNull().unique(),
+  passwordHash: varchar("passwordHash", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }),
+  fullName: varchar("fullName", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type MemberUser = typeof memberUsers.$inferSelect;
+export type InsertMemberUser = typeof memberUsers.$inferInsert;
+
+/**
+ * Bookings table for storing lesson bookings
+ */
+export const bookings = mysqlTable("bookings", {
+  id: int("id").autoincrement().primaryKey(),
+  memberId: int("memberId").notNull(),
+  lessonDate: timestamp("lessonDate").notNull(),
+  platform: varchar("platform", { length: 50 }).notNull(),
+  status: mysqlEnum("status", ["pending", "confirmed", "completed", "cancelled"]).default("pending").notNull(),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Booking = typeof bookings.$inferSelect;
+export type InsertBooking = typeof bookings.$inferInsert;
+
+==================== ./tailwind.config.js ====================
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: {
+    extend: {
+      colors: {
+        border: "#e5e7eb",
+        background: "#ffffff",
+        foreground: "#111827",
+        primary: "#6366f1",
+        secondary: "#f3f4f6",
+      },
+    },
+  },
+  plugins: [],
+};
+
+==================== ./vite.config.js ====================
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 5173,
+    host: true
+  }
+})
+
