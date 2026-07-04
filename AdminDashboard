@@ -1,0 +1,318 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { trpc } from "@/lib/trpc";
+import { useLocation } from "wouter";
+
+export default function AdminDashboard() {
+  const [, setLocation] = useLocation();
+  const [adminSession, setAdminSession] = useState<any>(null);
+  const [activeTab, setActiveTab] = useState<"members" | "bookings" | "create">("members");
+  const [members, setMembers] = useState<any[]>([]);
+  const [bookings, setBookings] = useState<any[]>([]);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [newMemberForm, setNewMemberForm] = useState({
+    username: "",
+    password: "",
+    email: "",
+    fullName: "",
+  });
+
+  // Check if admin is logged in
+  useEffect(() => {
+    const stored = localStorage.getItem("adminSession");
+    if (!stored) {
+      setLocation("/admin-login");
+      return;
+    }
+    setAdminSession(JSON.parse(stored));
+  }, [setLocation]);
+
+  const getAllMembersQuery = trpc.admin.getAllMembers.useQuery();
+  const getAllBookingsQuery = trpc.admin.getAllBookings.useQuery();
+  const createMemberMutation = trpc.admin.createMember.useMutation({
+    onSuccess: () => {
+      setSuccess("Member created successfully!");
+      setNewMemberForm({
+        username: "",
+        password: "",
+        email: "",
+        fullName: "",
+      });
+      setTimeout(() => setSuccess(""), 3000);
+      getAllMembersQuery.refetch();
+    },
+    onError: (err) => {
+      setError(err.message || "Failed to create member");
+    },
+  });
+
+  useEffect(() => {
+    if (getAllMembersQuery.data) {
+      setMembers(getAllMembersQuery.data);
+    }
+  }, [getAllMembersQuery.data]);
+
+  useEffect(() => {
+    if (getAllBookingsQuery.data) {
+      setBookings(getAllBookingsQuery.data);
+    }
+  }, [getAllBookingsQuery.data]);
+
+  const handleMemberFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setNewMemberForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCreateMember = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    if (!newMemberForm.username || !newMemberForm.password) {
+      setError("Username and password are required");
+      return;
+    }
+
+    if (newMemberForm.password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
+    createMemberMutation.mutate({
+      username: newMemberForm.username,
+      password: newMemberForm.password,
+      email: newMemberForm.email || undefined,
+      fullName: newMemberForm.fullName || undefined,
+    });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminSession");
+    setLocation("/");
+  };
+
+  if (!adminSession) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background text-foreground py-12 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-4xl font-bold text-primary">Admin Dashboard</h1>
+            <p className="text-muted-foreground">Welcome, {adminSession.username}</p>
+          </div>
+          <Button
+            onClick={handleLogout}
+            className="bg-secondary hover:bg-secondary/90 text-foreground"
+          >
+            Logout
+          </Button>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex gap-4 mb-8 border-b border-border">
+          <button
+            onClick={() => setActiveTab("members")}
+            className={`px-4 py-2 font-medium transition-colors ${
+              activeTab === "members"
+                ? "text-primary border-b-2 border-primary"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Members ({members.length})
+          </button>
+          <button
+            onClick={() => setActiveTab("bookings")}
+            className={`px-4 py-2 font-medium transition-colors ${
+              activeTab === "bookings"
+                ? "text-primary border-b-2 border-primary"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Bookings ({bookings.length})
+          </button>
+          <button
+            onClick={() => setActiveTab("create")}
+            className={`px-4 py-2 font-medium transition-colors ${
+              activeTab === "create"
+                ? "text-primary border-b-2 border-primary"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Create Member
+          </button>
+        </div>
+
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            {success}
+          </div>
+        )}
+
+        {/* Members Tab */}
+        {activeTab === "members" && (
+          <div className="space-y-4">
+            {members.length === 0 ? (
+              <Card className="p-6 text-center">
+                <p className="text-muted-foreground">No members yet</p>
+              </Card>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="text-left px-4 py-2 font-semibold">Username</th>
+                      <th className="text-left px-4 py-2 font-semibold">Full Name</th>
+                      <th className="text-left px-4 py-2 font-semibold">Email</th>
+                      <th className="text-left px-4 py-2 font-semibold">Joined</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {members.map((member) => (
+                      <tr key={member.id} className="border-b border-border hover:bg-secondary/50">
+                        <td className="px-4 py-3 font-medium">{member.username}</td>
+                        <td className="px-4 py-3">{member.fullName || "-"}</td>
+                        <td className="px-4 py-3">{member.email || "-"}</td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground">
+                          {new Date(member.createdAt).toLocaleDateString()}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Bookings Tab */}
+        {activeTab === "bookings" && (
+          <div className="space-y-4">
+            {bookings.length === 0 ? (
+              <Card className="p-6 text-center">
+                <p className="text-muted-foreground">No bookings yet</p>
+              </Card>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {bookings.map((booking) => (
+                  <Card key={booking.id} className="p-6 border-l-4 border-primary">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <p className="font-semibold">Member ID: {booking.memberId}</p>
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${
+                          booking.status === "confirmed"
+                            ? "bg-green-100 text-green-700"
+                            : booking.status === "completed"
+                            ? "bg-blue-100 text-blue-700"
+                            : "bg-yellow-100 text-yellow-700"
+                        }`}>
+                          {booking.status}
+                        </span>
+                      </div>
+                      <p className="text-sm">
+                        <span className="font-medium">Date:</span> {new Date(booking.lessonDate).toLocaleDateString()} at{" "}
+                        {new Date(booking.lessonDate).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </p>
+                      <p className="text-sm">
+                        <span className="font-medium">Platform:</span> <span className="capitalize">{booking.platform}</span>
+                      </p>
+                      {booking.notes && (
+                        <p className="text-sm">
+                          <span className="font-medium">Notes:</span> {booking.notes}
+                        </p>
+                      )}
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Create Member Tab */}
+        {activeTab === "create" && (
+          <Card className="p-8 border-l-4 border-primary max-w-md">
+            <h2 className="text-2xl font-bold text-primary mb-6">Create New Member</h2>
+
+            <form onSubmit={handleCreateMember} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  value={newMemberForm.username}
+                  onChange={handleMemberFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={newMemberForm.password}
+                  onChange={handleMemberFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="At least 6 characters"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Email (Optional)</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={newMemberForm.email}
+                  onChange={handleMemberFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Email"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Full Name (Optional)</label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={newMemberForm.fullName}
+                  onChange={handleMemberFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Full name"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                disabled={createMemberMutation.isPending}
+              >
+                {createMemberMutation.isPending ? "Creating..." : "Create Member"}
+              </Button>
+            </form>
+          </Card>
+        )}
+      </div>
+    </div>
+  );
+}
